@@ -105,13 +105,14 @@ body{
   outline: none;
 }
 
-/* hamburger for small screens */
+/* hamburger for small screens - default hidden on desktop */
 .hamburger-icon{
-  display:flex;
+  display:none; /* hide by default on desktop */
   flex-direction:column;
   gap:5px;
   width:30px;
   cursor:pointer;
+  padding:6px;
 }
 .hamburger-icon span{
   height:3px;
@@ -225,6 +226,9 @@ body{
   .hero{padding:2.8rem}
   .hero h1{font-size:2.4rem}
   .nav-links{gap:1.1rem}
+  /* ensure hamburger hidden and desktop nav visible */
+  .hamburger-icon{display:none}
+  .nav-links{display:flex}
 }
 @media (max-width:899px){
   /* compact navbar for mobile */
@@ -237,7 +241,7 @@ body{
   /* hide desktop nav and enable hamburger */
   .nav-links{display:none;flex-direction:column;gap:0.6rem;margin-top:0.6rem}
   .nav-links.show{display:flex}
-  .hamburger-icon{display:block}
+  .hamburger-icon{display:flex}
 
   /* hero adjustments for mobile */
   .hero{flex-direction:column;align-items:flex-start;padding:1.2rem}
@@ -248,6 +252,9 @@ body{
 
   /* profile card smaller */
   .profile-card{ width:160px; padding:14px }
+
+  /* fallback: make sure sections visible on small screens if JS/cache issue */
+  .section{opacity:1 !important; transform:none !important; display:block !important}
 }
 
 /* focus-visible for accessibility */
