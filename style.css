@@ -106,25 +106,32 @@ body {
     }
 }
 
-.header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-}
-
 .container {
     max-width: 800px;
     width: 90%;
     margin: 2rem auto;
 }
 
+/* Menyembunyikan semua bagian secara default */
 .section {
+    display: none;
     background: #fff;
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Hanya menampilkan bagian yang memiliki kelas active */
+.section.active {
+    display: block;
+}
+
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
 }
 
 .skills-list {
