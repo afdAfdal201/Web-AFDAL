@@ -87,11 +87,6 @@ body {
     display: block;
 }
 
-@media (min-width: 768px) {
-    .hamburger-icon {
-        display: none;
-    }
-
     .nav-links {
         position: static;
         flex-direction: row;
