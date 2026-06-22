@@ -27,11 +27,6 @@ body {
     font-size: 1.2rem;
 }
 
-/* Menyembunyikan Checkbox Menu */
-.menu-toggle {
-    display: none;
-}
-
 /* Desain Ikon Hamburger */
 .hamburger-icon {
     display: flex;
@@ -51,16 +46,16 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Animasi Ikon Hamburger saat Diklik */
-.menu-toggle:checked + .hamburger-icon span:nth-child(1) {
+/* Animasi Ikon Hamburger saat Aktif */
+.hamburger-icon.active span:nth-child(1) {
     transform: translateY(8.5px) rotate(45deg);
 }
 
-.menu-toggle:checked + .hamburger-icon span:nth-child(2) {
+.hamburger-icon.active span:nth-child(2) {
     opacity: 0;
 }
 
-.menu-toggle:checked + .hamburger-icon span:nth-child(3) {
+.hamburger-icon.active span:nth-child(3) {
     transform: translateY(-8.5px) rotate(-45deg);
 }
 
@@ -80,8 +75,8 @@ body {
     transition: max-height 0.3s ease-in-out;
 }
 
-/* Menampilkan Menu saat Checkbox Aktif */
-.menu-toggle:checked ~ .nav-links {
+/* Menampilkan Menu saat Kelas Active Ditambahkan oleh JS */
+.nav-links.active {
     max-height: 300px;
     padding-bottom: 1rem;
 }
