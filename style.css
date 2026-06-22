@@ -227,10 +227,27 @@ body{
   .nav-links{gap:1.1rem}
 }
 @media (max-width:899px){
-  .nav-links{display:none}
+  /* compact navbar for mobile */
+  .navbar{
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
+  }
+  .logo{ font-size:0.95rem; }
+
+  /* hide desktop nav and enable hamburger */
+  .nav-links{display:none;flex-direction:column;gap:0.6rem;margin-top:0.6rem}
+  .nav-links.show{display:flex}
   .hamburger-icon{display:block}
-  .hero{flex-direction:column;align-items:flex-start}
+
+  /* hero adjustments for mobile */
+  .hero{flex-direction:column;align-items:flex-start;padding:1.2rem}
+  .hero-left{width:100%}
   .hero-right{width:100%;display:flex;justify-content:flex-end;margin-top:1rem}
+  .hero h1{font-size:1.6rem}
+  .lead{font-size:0.95rem}
+
+  /* profile card smaller */
+  .profile-card{ width:160px; padding:14px }
 }
 
 /* focus-visible for accessibility */
