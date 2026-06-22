@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio AFDAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="logo">AFDAL</div>
-        
-        <div class="hamburger-icon" id="menu-toggle">
+
+        <div class="hamburger-icon" id="menu-toggle" aria-label="Buka menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -26,18 +27,43 @@
         </ul>
     </nav>
 
-    <div class="container">
-        <header id="home" class="section active">
-            <h1>Selamat Datang di Portofolio Saya</h1>
-            <p>AFDAL | Future Software Engineer / RPL Student</p>
+    <!-- Animated background layers -->
+    <div class="bg-gradient"></div>
+    <div class="bg-blob"></div>
+
+    <main class="container">
+        <header id="home" class="section hero reveal">
+            <div class="hero-left">
+                <h1>Halo, saya Afdal</h1>
+                <p class="lead">Future Software Engineer & RPL Student — Saya membuat aplikasi yang fungsional dan desain yang bersih.</p>
+
+                <div class="hero-actions">
+                    <a href="#proyek" class="btn primary">Lihat Proyek</a>
+                    <a href="#kontak" class="btn outline">Hubungi Saya</a>
+                </div>
+
+                <div class="socials">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="profile-card glass">
+                    <div class="avatar">AF</div>
+                    <h3>Afdal</h3>
+                    <p>Student · Developer · Problem Solver</p>
+                </div>
+            </div>
         </header>
 
-        <section id="tentang-saya" class="section">
+        <section id="tentang-saya" class="section reveal">
             <h2>Tentang Saya</h2>
-            <p>Halo! Nama saya Afdal. Saya adalah seorang siswa yang tertarik dengan dunia teknologi, khususnya pengembangan perangkat lunak, dan sangat termotivasi untuk mendalami bidang Software Engineering.</p>
+            <p>Halo! Nama saya Afdal. Saya adalah seorang siswa yang tertarik dengan dunia teknologi, khususnya pengembangan perangkat lunak. Saya suka belajar bahasa pemrograman, membangun proyek kecil, dan terus mengasah keterampilan saya.</p>
         </section>
 
-        <section id="keterampilan" class="section">
+        <section id="keterampilan" class="section reveal">
             <h2>Keterampilan</h2>
             <p>Berikut adalah beberapa teknologi dan bahasa pemrograman yang sedang saya pelajari dan kuasai:</p>
             <ul class="skills-list">
@@ -48,21 +74,34 @@
             </ul>
         </section>
 
-        <section id="proyek" class="section">
+        <section id="proyek" class="section reveal">
             <h2>Proyek</h2>
-            <p>Bagian ini akan menampilkan karya-karya saya. Berikut adalah beberapa placeholder proyek yang akan terus diperbarui:</p>
+            <p>Bagian ini menampilkan beberapa proyek saya. Klik kartu untuk detail.</p>
             <div class="project-cards">
-                <div class="card">Proyek 1</div>
-                <div class="card">Proyek 2</div>
-                <div class="card">Proyek 3</div>
+                <div class="card project-card" tabindex="0">
+                    <h3>Proyek 1</h3>
+                    <p>Deskripsi singkat proyek 1.</p>
+                </div>
+                <div class="card project-card" tabindex="0">
+                    <h3>Proyek 2</h3>
+                    <p>Deskripsi singkat proyek 2.</p>
+                </div>
+                <div class="card project-card" tabindex="0">
+                    <h3>Proyek 3</h3>
+                    <p>Deskripsi singkat proyek 3.</p>
+                </div>
             </div>
         </section>
 
-        <section id="kontak" class="section">
+        <section id="kontak" class="section reveal">
             <h2>Kontak</h2>
             <p>Anda dapat menghubungi saya melalui media sosial atau email profesional saya.</p>
+            <div class="contact-cards">
+                <div class="card glass">Email: <a href="mailto:email@example.com">email@example.com</a></div>
+                <div class="card glass">GitHub: <a href="#">github.com/afdAfdal201</a></div>
+            </div>
         </section>
-    </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
