@@ -142,10 +142,6 @@ body {
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .project-cards {
-        flex-direction: row;
-    }
     .card {
         flex: 1;
     }
