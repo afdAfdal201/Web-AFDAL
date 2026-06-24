@@ -45,7 +45,7 @@
     allSections.forEach(section => {
       if (section.id === sectionId) {
         // Hero section butuh display 'flex', section biasa butuh 'block'
-        section.style.display = (section.id === 'home') ? 'flex' : 'block';
+        section.style.display = 'block';
         
         // Jeda sebentar agar transisi CSS terbaca oleh browser
         setTimeout(() => {
