@@ -626,3 +626,17 @@ button:focus-visible,
         width: 100%;
     }
 }
+
+/* Memisahkan background wrapper Home agar Hero dan Sketsa tidak menyatu */
+#home.section {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+}
+
+/* Jarak yang memisahkan bagian atas (Hero) dengan bagian bawah (Sketsa) */
+.sketch-modules {
+    margin-top: 2.5rem; 
+    padding: 0;
+}
