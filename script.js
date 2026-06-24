@@ -24,29 +24,60 @@
     });
   }
 
-  // Smooth scroll for anchor links
+  // Initialize: Hide all sections except home on load
+  function initializeSections(){
+    const allSections = document.querySelectorAll('.section');
+    const homeSection = document.getElementById('home');
+    
+    allSections.forEach(section => {
+      if (section.id === 'home') {
+        section.classList.add('reveal');
+        section.classList.remove('hidden');
+        section.style.display = 'block';
+      } else {
+        section.classList.remove('reveal');
+        section.classList.add('hidden');
+        section.style.display = 'none';
+      }
+    });
+  }
+
+  // Show section and hide others
+  function showSection(sectionId){
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(section => {
+      if (section.id === sectionId) {
+        section.classList.add('reveal');
+        section.classList.remove('hidden');
+        section.style.display = 'block';
+        section.style.pointerEvents = 'auto';
+      } else {
+        section.classList.remove('reveal');
+        section.classList.add('hidden');
+        section.style.display = 'none';
+        section.style.pointerEvents = 'none';
+      }
+    });
+  }
+
+  // Smooth scroll for anchor links with section toggle
   document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
     anchor.addEventListener('click', function(e){
       const href = this.getAttribute('href');
       if (href.length > 1 && document.querySelector(href)){
         e.preventDefault();
-        document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        
+        // Extract section id from href
+        const sectionId = href.substring(1); // remove # prefix
+        showSection(sectionId);
+        
+        // Smooth scroll to section
+        setTimeout(() => {
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }, 50);
       }
     });
   });
-
-  // Ensure home/primary section is visible on initial load
-  function showInitialSection(){
-    // if there's a hash in URL, let browser/scroll handle it
-    if (location.hash && document.querySelector(location.hash)) return;
-    const home = document.getElementById('home');
-    if (home){
-      // add classes used by CSS for visibility
-      home.classList.add('reveal');
-      // scroll to top of page / home
-      window.scrollTo({top: home.offsetTop, behavior: 'auto'});
-    }
-  }
 
   // Reveal on scroll using IntersectionObserver
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -93,6 +124,8 @@
 
   if (!prefersReduced) enableTilt();
 
-  // Run initial show
-  document.addEventListener('DOMContentLoaded', showInitialSection);
+  // Run on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeSections();
+  });
 })();
