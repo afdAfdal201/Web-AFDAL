@@ -1,19 +1,19 @@
-// Interactivity: menu toggle, smooth scroll, reveal on scroll, card tilt
+// Interactivity: menu toggle, SPA routing, card tilt
 (function(){
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
+  const links = navLinks ? navLinks.querySelectorAll('a') : [];
 
   // Menu toggle for small screens
   if (menuToggle && navLinks){
     menuToggle.addEventListener('click', () => {
       const active = menuToggle.classList.toggle('active');
-      // toggle nav links display for small screens
       if (window.innerWidth < 900) navLinks.style.display = active ? 'flex' : 'none';
       menuToggle.setAttribute('aria-expanded', active ? 'true' : 'false');
     });
 
-    // close when link clicked (mobile)
-    navLinks.querySelectorAll('a').forEach(a=>{
+    // Close menu when a link is clicked (mobile)
+    links.forEach(a => {
       a.addEventListener('click', () => {
         if (window.innerWidth < 900){
           navLinks.style.display = 'none';
@@ -24,77 +24,66 @@
     });
   }
 
-  // Initialize: Hide all sections except home on load
-  function initializeSections(){
-    const allSections = document.querySelectorAll('.section');
-    const homeSection = document.getElementById('home');
-    
-    allSections.forEach(section => {
-      if (section.id === 'home') {
-        section.classList.add('reveal');
-        section.classList.remove('hidden');
-        section.style.display = 'block';
+  // --- SPA ROUTER LOGIC ---
+
+  // Update style navigasi yang sedang aktif
+  function updateActiveNav(sectionId) {
+    links.forEach(link => {
+      if (link.getAttribute('href') === `#${sectionId}`) {
+        link.classList.add('active');
       } else {
-        section.classList.remove('reveal');
-        section.classList.add('hidden');
-        section.style.display = 'none';
+        link.classList.remove('active');
       }
     });
   }
 
-  // Show section and hide others
+  // Menampilkan section yang dipilih dengan animasi transisi
   function showSection(sectionId){
     const allSections = document.querySelectorAll('.section');
+    let sectionFound = false;
+
     allSections.forEach(section => {
       if (section.id === sectionId) {
-        section.classList.add('reveal');
-        section.classList.remove('hidden');
-        section.style.display = 'block';
+        // Hero section butuh display 'flex', section biasa butuh 'block'
+        section.style.display = (section.id === 'home') ? 'flex' : 'block';
+        
+        // Jeda sebentar agar transisi CSS terbaca oleh browser
+        setTimeout(() => {
+          section.classList.add('reveal');
+          section.classList.remove('hidden');
+        }, 10);
+        
         section.style.pointerEvents = 'auto';
+        sectionFound = true;
       } else {
         section.classList.remove('reveal');
         section.classList.add('hidden');
-        section.style.display = 'none';
         section.style.pointerEvents = 'none';
+        
+        // Sembunyikan sepenuhnya setelah animasi selesai
+        setTimeout(() => {
+          if (section.classList.contains('hidden')) {
+            section.style.display = 'none';
+          }
+        }, 250); // Sesuaikan dengan waktu transisi di CSS (250ms)
       }
     });
+
+    // Fallback ke home jika URL hash tidak valid
+    if (!sectionFound && sectionId !== 'home') {
+      window.location.hash = 'home';
+    }
   }
 
-  // Smooth scroll for anchor links with section toggle
-  document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-    anchor.addEventListener('click', function(e){
-      const href = this.getAttribute('href');
-      if (href.length > 1 && document.querySelector(href)){
-        e.preventDefault();
-        
-        // Extract section id from href
-        const sectionId = href.substring(1); // remove # prefix
-        showSection(sectionId);
-        
-        // Smooth scroll to section
-        setTimeout(() => {
-          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
-        }, 50);
-      }
-    });
+  // Handle pergantian hash URL (Tombol navigasi & back/forward browser)
+  window.addEventListener('hashchange', () => {
+    const sectionId = window.location.hash.substring(1) || 'home';
+    showSection(sectionId);
+    updateActiveNav(sectionId);
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Reset scroll ke atas tiap pindah halaman
   });
 
-  // Reveal on scroll using IntersectionObserver
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReduced){
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if (entry.isIntersecting){
-          entry.target.classList.add('reveal');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {threshold:0.12});
-    document.querySelectorAll('.section, .hero, .card').forEach(el=>observer.observe(el));
-  } else {
-    // if reduced motion, just show them
-    document.querySelectorAll('.section, .hero, .card').forEach(el=>el.classList.add('reveal'));
-  }
+  // --- END SPA ROUTER ---
 
   // Card tilt effect (mouse)
   function enableTilt(){
@@ -122,10 +111,13 @@
     }
   }
 
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!prefersReduced) enableTilt();
 
-  // Run on DOM ready
+  // Run on DOM ready (Inisialisasi halaman pertama saat web dibuka)
   document.addEventListener('DOMContentLoaded', () => {
-    initializeSections();
+    const initialSection = window.location.hash.substring(1) || 'home';
+    showSection(initialSection);
+    updateActiveNav(initialSection);
   });
 })();
