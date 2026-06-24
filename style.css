@@ -164,6 +164,8 @@ body {
   border-radius: var(--radius);
   box-shadow: 0 10px 30px rgba(2,6,23,0.6);
   overflow: hidden;
+  margin-bottom: 2rem; /* Jarak pemisah dari kotak bawah */
+  width: 100%;
 }
 
 .hero-left {
@@ -516,8 +518,6 @@ body {
     height: 36px;
     font-size: 0.8rem;
   }
-  
-  /* CATATAN PENTING: Baris perusak SPA di mobile lama sudah dihapus dari sini! */
 }
 
 /* AKSESIBILITAS & ACCENT FOCUS */
@@ -542,8 +542,8 @@ button:focus-visible,
 
 /* Styling for sketch-based modules section */
 .sketch-modules {
-    margin-top: 2.5rem; 
-    padding: 2.2rem; /* Menyamakan background dengan kotak Hero */
+    margin-top: 0; /* Dinolkan karena kotak Hero sudah memberi jarak ke bawah */
+    padding: 2.2rem; 
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(2,6,23,0.6);
@@ -560,7 +560,7 @@ button:focus-visible,
     flex: 1;
     min-width: 0;
     padding: 0.5rem;
-    background: transparent; /* Dibuat transparan agar menyatu dengan background utama */
+    background: transparent; 
     border: none;
     box-shadow: none;
 }
@@ -576,13 +576,13 @@ button:focus-visible,
 /* Modul Foto 1 (Kotak) */
 .sketch-cyan-glow {
     box-shadow: 0 0 15px rgba(0,212,255,0.2);
-    padding: 1.2rem; /* Jarak agar foto tidak menempel di bayangan */
+    padding: 1.2rem; 
     background: rgba(255, 255, 255, 0.03); 
     border-radius: 12px;
 }
 
 .sketch-cyan-glow .sketch-photo-img {
-    border-radius: 8px; /* Sudut foto sedikit membulat */
+    border-radius: 8px; 
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -635,4 +635,14 @@ button:focus-visible,
     .sketch-card {
         width: 100%;
     }
+}
+
+/* --------------------------------------------------------
+   MENGHILANGKAN KOTAK RAKSASA PEMBUNGKUS LUAR (KHUSUS HOME) 
+   -------------------------------------------------------- */
+#home.section {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
 }
