@@ -646,3 +646,91 @@ button:focus-visible,
     border: none !important;
     padding: 0 !important;
 }
+
+/* --------------------------------------------------------
+   STYLING UNTUK MODUL WHATSAPP DI HALAMAN PROYEK
+   -------------------------------------------------------- */
+.wa-community-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 2.5rem; /* Jarak pemisah yang tegas dari 6 kotak proyek di atasnya */
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 30px rgba(2,6,23,0.4);
+    transition: transform var(--transition);
+}
+
+.wa-community-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0,212,255,0.3);
+}
+
+/* Bingkai Foto Kiri */
+.wa-photo-frame {
+    width: 130px;
+    height: 130px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-1);
+    padding: 4px; /* Memberi efek bingkai luar */
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.wa-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Area Teks Kanan */
+.wa-info {
+    flex: 1;
+}
+
+.wa-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+    color: #fff;
+}
+
+.wa-info p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Teks Link Cyan */
+.wa-link {
+    display: inline-block;
+    color: var(--accent-2); /* Warna Cyan */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 200ms ease, text-decoration 200ms ease;
+}
+
+.wa-link:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--accent-2);
+}
+
+/* Penyesuaian Jika Dibuka di HP */
+@media (max-width: 899px) {
+    .wa-community-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.2rem;
+    }
+    .wa-photo-frame {
+        width: 100px;
+        height: 100px;
+    }
+}
