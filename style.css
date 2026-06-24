@@ -83,6 +83,15 @@ body{
   color: #fff;
   padding: 6px 10px;
 }
+/* Constrain logo image used in navbar (prevents full-photo showing)
+   If you later add a proper logo image place it in images/logo-main.png and update the src. */
+.logo-img{
+  width:42px;
+  height:42px;
+  object-fit:cover;
+  border-radius:8px; /* rounded rect; set to 50% for circular */
+  display:block;
+}
 .nav-links{
   display:flex;
   gap:1rem;
@@ -190,6 +199,14 @@ body{
   display:inline-flex;align-items:center;justify-content:center;
   background: linear-gradient(120deg,var(--accent-1),var(--accent-2));
   color:#041124;font-weight:700;font-size:1.25rem;margin-bottom:10px;
+}
+/* Ensure avatar img is cropped and constrained */
+.avatar-img{
+  width:72px;
+  height:72px;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
 }
 
 /* sections */
