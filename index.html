@@ -6,13 +6,38 @@
     <title>Portofolio AFDAL</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=5">
+
+    <!-- Inline contact CSS to force immediate fix (overrides cached stylesheet) -->
+    <style>
+      :root{--accent-1:#7c5cff;--accent-2:#00d4ff;--muted:#9aa4b2}
+      .contact-grid{display:grid;grid-template-columns:1fr 260px;gap:1rem;align-items:start}
+      .contact-list h3,.follow h3{margin:0 0 0.5rem 0;font-size:1.15rem;color:#fff}
+      .contact-list ul{list-style:none;padding:0;margin:0;color:var(--muted);font-size:0.95rem;line-height:1.8}
+      .contact-list li{margin-bottom:0.55rem}
+      .contact-list a{color:var(--accent-2);text-decoration:none;font-weight:600}
+      .contact-list a:hover{text-decoration:underline}
+
+      .follow-note{color:var(--muted);font-size:0.95rem;margin-bottom:0.6rem}
+      .social-icons{display:flex;flex-wrap:wrap;gap:0.5rem}
+      .social-btn{width:40px;height:40px;border-radius:50%;display:inline-grid;place-items:center;border:1.5px solid rgba(255,255,255,0.08);color:#fff;text-decoration:none;font-weight:700;background:transparent;transition:all 160ms ease;font-size:0.85rem}
+      .social-btn:hover{transform:translateY(-4px);background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#081126;border-color:transparent}
+
+      /* make sure bullets hidden even if browser defaults apply */
+      .contact-list ul li::marker{color:transparent}
+
+      @media (max-width:899px){
+        .contact-grid{grid-template-columns:1fr;gap:0.8rem}
+        .social-btn{width:36px;height:36px;font-size:0.8rem}
+      }
+    </style>
+
 </head>
 <body>
 
     <nav class="navbar">
         <div class="logo">
             <!-- Menggunakan file gambar yang Anda upload: 1002676905.jpg (di root repo) -->
-            <img src="002676905.jpg" alt="AFDAL" class="logo-img">
+            <img src="/afdAfdal201/personal-portofolio/raw/main/1002676905.jpg" class="logo-img" alt="AFDAL">
         </div>
 
         <div class="hamburger-icon" id="menu-toggle" aria-label="Buka menu" aria-expanded="false">
@@ -56,9 +81,9 @@
                 <div class="profile-card glass">
                     <div class="avatar">
                         <!-- pakai gambar yang sama sebagai avatar -->
-                        <img src="002676905.jpg" alt="AFDAL" class="avatar-img">
+                        <img src="/afdAfdal201/personal-portofolio/raw/main/1002676905.jpg" alt="Afdal" class="avatar-img">
                     </div>
-                    <h3>AFDAL</h3>
+                    <h3>Afdal</h3>
                     <p>Student · Developer · Problem Solver</p>
                 </div>
             </div>
