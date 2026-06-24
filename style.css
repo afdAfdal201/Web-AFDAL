@@ -399,7 +399,7 @@ body {
 
 .social-btn:hover {
   transform: translateY(-4px);
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
   color: #081126;
   border-color: transparent;
 }
@@ -542,195 +542,199 @@ button:focus-visible,
 
 /* Styling for sketch-based modules section */
 .sketch-modules {
-    margin-top: 0; /* Dinolkan karena kotak Hero sudah memberi jarak ke bawah */
-    padding: 2.2rem; 
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  margin-top: 0; /* Dinolkan karena kotak Hero sudah memberi jarak ke bawah */
+  padding: 2.2rem; 
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
 }
 
 .sketch-row {
-    display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    justify-content: space-between;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .sketch-card {
-    flex: 1;
-    min-width: 0;
-    padding: 0.5rem;
-    background: transparent; 
-    border: none;
-    box-shadow: none;
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem;
+  background: transparent; 
+  border: none;
+  box-shadow: none;
 }
 
 .sketch-photo-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1; 
-    overflow: hidden;
-    border-radius: 10px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1; 
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 /* Modul Foto 1 (Kotak) */
 .sketch-cyan-glow {
-    box-shadow: 0 0 15px rgba(0,212,255,0.2);
-    padding: 1.2rem; 
-    background: rgba(255, 255, 255, 0.03); 
-    border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,212,255,0.2);
+  padding: 1.2rem; 
+  background: rgba(255, 255, 255, 0.03); 
+  border-radius: 12px;
 }
 
 .sketch-cyan-glow .sketch-photo-img {
-    border-radius: 8px; 
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  border-radius: 8px; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Modul Foto 2 (Lingkaran) */
 .sketch-magenta-glow {
-    box-shadow: 0 0 15px rgba(124,92,255,0.2);
+  box-shadow: 0 0 15px rgba(124,92,255,0.2);
 }
 
 .sketch-circle-frame {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .sketch-circle-img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Teks Tengah */
 .sketch-text-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-    color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
 }
 
 .sketch-text-content .lead {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-    color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--muted);
 }
 
 .sketch-text-content p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.8);
 }
 
 /* Penyesuaian untuk layar HP */
 @media (max-width:899px) {
-    .sketch-row {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .sketch-card {
-        width: 100%;
-    }
+  .sketch-row {
+      flex-direction: column;
+      gap: 1rem;
+  }
+  
+  .sketch-card {
+      width: 100%;
+  }
 }
 
 /* --------------------------------------------------------
    MENGHILANGKAN KOTAK RAKSASA PEMBUNGKUS LUAR (KHUSUS HOME) 
    -------------------------------------------------------- */
 #home.section {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 /* --------------------------------------------------------
    STYLING UNTUK MODUL WHATSAPP DI HALAMAN PROYEK
    -------------------------------------------------------- */
 .wa-community-card {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    margin-top: 2.5rem; /* Jarak pemisah yang tegas dari 6 kotak proyek di atasnya */
-    padding: 1.5rem;
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.05);
-    box-shadow: 0 10px 30px rgba(2,6,23,0.4);
-    transition: transform var(--transition);
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 2.5rem; /* Jarak pemisah tegas dari 6 kotak proyek di atasnya */
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.4);
+  transition: transform var(--transition);
 }
 
 .wa-community-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(0,212,255,0.3);
+  transform: translateY(-4px);
+  border-color: rgba(0,212,255,0.3);
 }
 
 /* Bingkai Foto Kiri */
 .wa-photo-frame {
-    width: 130px;
-    height: 130px;
-    flex-shrink: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--bg-1);
-    padding: 4px; /* Memberi efek bingkai luar */
-    border: 1px solid rgba(255,255,255,0.08);
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-1);
+  padding: 4px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wa-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mengunci foto agar terpotong pas di dalam kotak */
+  border-radius: 8px;
+  display: block;
 }
 
 /* Area Teks Kanan */
 .wa-info {
-    flex: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .wa-info h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-    color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  color: #fff;
 }
 
 .wa-info p {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 /* Teks Link Cyan */
 .wa-link {
-    display: inline-block;
-    color: var(--accent-2); /* Warna Cyan */
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 200ms ease, text-decoration 200ms ease;
+  display: inline-block;
+  color: var(--accent-2); /* Warna Cyan */
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 200ms ease, text-decoration 200ms ease;
 }
 
 .wa-link:hover {
-    color: #fff;
-    text-decoration: underline;
-    text-decoration-color: var(--accent-2);
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--accent-2);
 }
 
 /* Penyesuaian Jika Dibuka di HP */
 @media (max-width: 899px) {
-    .wa-community-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.2rem;
-    }
-    .wa-photo-frame {
-        width: 100px;
-        height: 100px;
-    }
+  .wa-community-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.2rem;
+  }
+  .wa-photo-frame {
+      width: 100px;
+      height: 100px;
+  }
 }
